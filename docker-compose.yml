@@ -13,6 +13,15 @@ services:
       timeout: 10s
       retries: 3
 
+  mongodb:
+    image: mongo:4.4
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    restart: always
+
   watchtower:
     image: containrrr/watchtower
     container_name: watchtower
@@ -20,3 +29,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
     command: --interval 60
+
+volumes:
+  mongo-data:
