@@ -16,7 +16,7 @@ spec:
       - name: todo
         image: aliwazeer/todo-list-nodejs:latest
         ports:
-        - containerPort: 3000
+        - containerPort: 7200
         envFrom:
         - secretRef:
             name: mongo-secret
