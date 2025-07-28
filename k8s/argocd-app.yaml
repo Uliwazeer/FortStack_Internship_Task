@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: todo-k8s
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Uliwazeer/FortStack_Internship_Task.git
+    targetRevision: HEAD
+    path: Part4/k8s
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
